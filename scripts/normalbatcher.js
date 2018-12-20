@@ -1,15 +1,3 @@
-/* eslint-disable no-loop-func */
-// const puppeteer = require('puppeteer');
-
-// let scrape = async () => {
-//   // Actual Scraping goes Here...
-//   // Return a value
-// };
-
-// scrape().then((value) => {
-//     console.log(value); // Success!
-// });
-
 const faker = require("faker");
 const mongoose = require("mongoose");
 // const Promise = require('bluebird');
@@ -25,8 +13,6 @@ mongoose
     }
   )
   .then(() => {
-    // const Schema = mongoose.Schema;
-
     var roomPicturesSchema = new mongoose.Schema(
       {
         name: {
@@ -66,22 +52,3 @@ mongoose
       mongoose.connection.close();
     });
   });
-// mongoose.connection.close();
-// pictureMaker.create(obj);
-// mongoose.connection.close();
-// image
-// avatar
-// imageUrl
-// abstract
-// animals
-// business
-// cats
-// city
-// food
-// nightlife
-// fashion
-// people
-// nature
-// sports
-// technics
-// transport
