@@ -16,7 +16,6 @@ app.use(json());
 app.use(express.static('public'));
 
 app.get('/rooms/:id/pictures', function (req, res) {
-  console.log('hello');
   findPicturesById(req.params.id)
     .then(function (images) {
       res.send(images.image_url);
