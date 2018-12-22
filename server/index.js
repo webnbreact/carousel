@@ -3,6 +3,7 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const { findPicturesByRoomId } = require('../database/');
 const path = require('path');
+
 const { urlencoded, json } = bodyParser;
 const app = express();
 
@@ -13,8 +14,7 @@ app.use(json());
 app.use(express.static('public'));
 
 app.get('/rooms/:id/pictures', function (req, res) {
-
-  findPicturesById(req.params.id)
+  findPicturesByRoomId(req.params.id)
     .then(function (images) {
       res.send(images.image_url);
     });
