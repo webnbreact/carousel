@@ -1,8 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Landing from './components/Landing.jsx';
 
 const App = () => {
-  return (<div> hello </div>);
+  // constructor() {
+  //   super();
+  // }
+
+  // render() {
+  return (<div> <Landing /> </div>);
+  // }
 };
 
-ReactDOM.render(<App />, document.getElementById("carousel-root"));
+ReactDOM.render(<App />, document.getElementById('carousel-root'));

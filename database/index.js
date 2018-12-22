@@ -18,5 +18,12 @@ var PicturesModel = mongoose.model('pictures', PicturesSchema);
 // });
 
 // console.log(count);
-
-module.exports = { PicturesModel };
+const findPicturesByRoomId = (roomNumber) => {
+  return PicturesModel.findOne({ room_id: roomNumber }).then((data) => {
+    return data;
+  })
+}
+module.exports = {
+  PicturesModel,
+  findPicturesByRoomId
+};
