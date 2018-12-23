@@ -12,7 +12,7 @@ class Landing extends React.Component {
 
   render() {
     return (
-      <div> bye bye </div>
+      <div> this iddsnt working! </div>
     );
   }
 }

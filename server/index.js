@@ -1,8 +1,8 @@
 const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
-const { findPicturesByRoomId } = require('../database/');
 const path = require('path');
+const { findPicturesByRoomId } = require('../database/');
 
 const { urlencoded, json } = bodyParser;
 const app = express();
@@ -13,14 +13,14 @@ app.use(json());
 
 app.use(express.static('public'));
 
-app.get('/rooms/:id/pictures', function (req, res) {
+app.get('/rooms/:id/pictures', (req, res) => {
   findPicturesByRoomId(req.params.id)
-    .then(function (images) {
+    .then((images) => {
       res.send(images.image_url);
     });
 });
 
-app.get('/:id', function (req, res) {
+app.get('/:id', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../public/index.html'));
 });
 
