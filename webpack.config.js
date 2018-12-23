@@ -35,6 +35,11 @@ module.exports = {
       },
     ],
   },
+  resolve: {
+    extension: [
+      '.js', '.jsx', '.json',
+    ],
+  },
   devtool: 'inline-source-map', // enum  // enhance debugging by adding meta info
   //for the browser devtools
   // source-map most detailed at the expense of build speed.
