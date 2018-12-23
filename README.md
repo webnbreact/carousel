@@ -35,6 +35,18 @@ From within the root directory:
 
 ```sh
 npm install -g webpack
-npm install
+yarn install
+```
+### Testing
+```zsh
+yarn test
+  //activates test suite
+yarn test:update
+  //updates the snapshots
 ```
 
+### Development Server
+```zsh
+yarn dev
+  //activates web-dev-server to serve the html in the public folder.
+```
