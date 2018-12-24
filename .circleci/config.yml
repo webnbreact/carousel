@@ -11,11 +11,7 @@ jobs:
       # - image: circleci/mongo:3.4.4
 
     # working_directory: ~/repo
-
-    steps:
-      - checkout
-      - run yarn
-            - restore_cache:
+      - restore_cache:
           name: Restore Yarn Package Cache
           keys:
             - yarn-packages-{{ checksum "yarn.lock" }}
@@ -26,7 +22,12 @@ jobs:
           name: Save Yarn Package Cache
           key: yarn-packages-{{ checksum "yarn.lock" }}
           paths:
-            - ~/.cache/yarn
+      - ~/.cache/yarn
+
+    steps:
+      - checkout
+      - run yarn
+      
       # # Download and cache dependencies
       # - restore_cache:
           # keys:
