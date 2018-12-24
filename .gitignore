@@ -27,3 +27,6 @@ dist/
 example/
 proxy-server/
 launch.json
+
+#mycircleci
+.myenv/
