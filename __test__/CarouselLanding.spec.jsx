@@ -2,7 +2,7 @@ import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
-import Landing from '../client/components/Landing';
+import Landing from '../client/components/CarouselLanding';
 
 Enzyme.configure({ adapter: new Adapter() });
 

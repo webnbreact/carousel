@@ -2,7 +2,7 @@
 /* eslint-disable class-methods-use-this */
 import React from 'react';
 
-class Landing extends React.Component {
+class CarouselLanding extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -12,9 +12,9 @@ class Landing extends React.Component {
 
   render() {
     return (
-      <div> Component is renderdding! </div>
+      <div> Hot moduddle repalcement!! </div>
     );
   }
 }
 
-export default Landing;
+export default CarouselLanding;
