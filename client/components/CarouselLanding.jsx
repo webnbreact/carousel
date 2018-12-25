@@ -8,7 +8,7 @@ class CarouselLanding extends React.Component {
   constructor() {
     super();
     this.state = {
-      image_url: [],
+      imageUrls: [],
     };
   }
 
@@ -20,7 +20,7 @@ class CarouselLanding extends React.Component {
     const postUrl = url.resolve(dbLocation, pathName);
     this.getDataFromServer(postUrl)
       .then((data) => {
-        this.setState({ image_url: data });
+        this.setState({ imageUrls: data });
       });
   }
 
@@ -29,15 +29,19 @@ class CarouselLanding extends React.Component {
       .then(response => (response.data));
   }
 
+  handleImageLoad(event) {
+
+  }
+
   render() {
-    const { image_url } = this.state;
+    const { imageUrls } = this.state;
     return (
       <div>
         {' '}
-        {image_url.map(datum => (
+        {imageUrls.map(datum => (
           <div>
             {' '}
-            {datum}
+            <img className="lazyload" onLoad={this.handleImageLoad} src={`${datum}/food`} alt="pictures" />
             {' '}
           </div>
         ))}
