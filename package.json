@@ -1,5 +1,6 @@
 {
   "name": "webnb-carousel",
+
   "version": "1.0.0",
   "description": "carousel module",
   "author": "Yk mario Mui",
@@ -9,9 +10,17 @@
   },
   "scripts": {
     "seed": "node scripts/normalbatcher.js",
-    "watch": "webpack --watch"
+    "watch": "webpack --watch",
+    "test": "jest",
+    "test:update": "jest -u"
+  },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   },
   "dependencies": {
+    "babel-jest": "^23.6.0",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "faker": "^4.1.0",
@@ -27,8 +36,19 @@
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.2.3",
     "@babel/preset-react": "^7.0.0",
+    "babel-core": "^7.0.0-0",
     "babel-loader": "^8.0.4",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.7.1",
+    "enzyme-to-json": "^3.3.5",
+    "eslint": "^5.11.0",
+    "eslint-config-airbnb": "^17.1.0",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
+    "jest": "^23.6.0",
     "webpack": "^4.28.1",
     "webpack-cli": "^3.1.2"
   }
