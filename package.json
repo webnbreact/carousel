@@ -12,7 +12,8 @@
     "seed": "node scripts/normalbatcher.js",
     "watch": "webpack --watch",
     "test": "jest",
-    "test:update": "jest -u"
+    "test:update": "jest -u",
+    "dev": "webpack-dev-server"
   },
   "jest": {
     "snapshotSerializers": [
@@ -20,7 +21,6 @@
     ]
   },
   "dependencies": {
-    "babel-jest": "^23.6.0",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "faker": "^4.1.0",
@@ -29,7 +29,8 @@
     "morgan": "^1.9.1",
     "path": "^0.12.7",
     "react": "^16.7.0",
-    "react-dom": "^16.7.0"
+    "react-dom": "^16.7.0",
+    "webpack": "^4.28.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
@@ -37,6 +38,8 @@
     "@babel/preset-env": "^7.2.3",
     "@babel/preset-react": "^7.0.0",
     "babel-core": "^7.0.0-0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.4",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "enzyme": "^3.8.0",
@@ -49,7 +52,7 @@
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
     "jest": "^23.6.0",
-    "webpack": "^4.28.1",
-    "webpack-cli": "^3.1.2"
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.13"
   }
 }
