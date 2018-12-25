@@ -3,13 +3,13 @@ const path = require('path');
 const config = {
   devServer: {
     // contentBase: '/public/',
-    contentBase: path.resolve(__dirname, './public/'),
-    // contentBase: path.resolve(__dirname, './public/'),
+    publicPath: '/public/dist/',
+    // contentBase: ''),
     // index: path.join(__dirname, 'public/index.html'),
     historyApiFallback: true,
   },
   mode: 'development', // "production" | "development" | "none"  // Chosen mode tells webpack to use its built-in optimizations accordingly.
-  // context: __dirname,
+  context: __dirname,
   entry: path.resolve(__dirname, './client/Index.jsx'),
   // string | object | array  // defaults to './src'
   // Here the application starts executing
