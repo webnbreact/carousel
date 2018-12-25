@@ -20,6 +20,7 @@
     ]
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "faker": "^4.1.0",
@@ -29,6 +30,7 @@
     "path": "^0.12.7",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
+    "url": "^0.11.0",
     "webpack": "^4.28.2"
   },
   "devDependencies": {
