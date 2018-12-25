@@ -12,7 +12,7 @@ class Landing extends React.Component {
 
   render() {
     return (
-      <div> Component is renderdding! </div>
+      <div> Hot module repalcement!! </div>
     );
   }
 }
