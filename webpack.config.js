@@ -2,7 +2,7 @@ const path = require('path');
 
 const config = {
   devServer: {
-    // contentBase: '/public/',
+    contentBase: __dirname,
     publicPath: '/public/dist/',
     // contentBase: ''),
     // index: path.join(__dirname, 'public/index.html'),
