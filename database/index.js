@@ -9,7 +9,7 @@ mongoose.connect(
 
 const PicturesSchema = new mongoose.Schema(picturesSchema, { timestamps: true });
 
-var PicturesModel = mongoose.model('pictures', PicturesSchema);
+const PicturesModel = mongoose.model('pictures', PicturesSchema);
 
 // PicturesModel.estimatedDocumentCount({}, (err, count) => {
 //   console.log(count);
@@ -18,12 +18,11 @@ var PicturesModel = mongoose.model('pictures', PicturesSchema);
 // });
 
 // console.log(count);
-const findPicturesByRoomId = (roomNumber) => {
-  return PicturesModel.findOne({ room_id: roomNumber }).then((data) => {
-    return data;
-  })
-}
+const findPicturesByRoomId = roomNumber => PicturesModel
+  .findOne({ room_id: roomNumber })
+  .then(data => data);
+
 module.exports = {
   PicturesModel,
-  findPicturesByRoomId
+  findPicturesByRoomId,
 };
