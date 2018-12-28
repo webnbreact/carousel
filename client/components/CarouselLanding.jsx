@@ -3,6 +3,7 @@
 import React from 'react';
 import axios from 'axios';
 import url from 'url';
+import CarouselCard from './CarouselCard';
 
 class CarouselLanding extends React.Component {
   constructor() {
@@ -11,7 +12,6 @@ class CarouselLanding extends React.Component {
       imageUrls: [],
     };
   }
-
 
   componentDidMount() {
     const currentUrl = window.location.href;
@@ -29,23 +29,14 @@ class CarouselLanding extends React.Component {
       .then(response => (response.data));
   }
 
-  handleImageLoad(event) {
-
-  }
-
   render() {
     const { imageUrls } = this.state;
+
     return (
       <div>
-        {' '}
-        {imageUrls.map(datum => (
-          <div>
-            {' '}
-            <img className="lazyload" onLoad={this.handleImageLoad} src={`${datum}/food`} alt="pictures" />
-            {' '}
-          </div>
+        {imageUrls.map((imageUrl, key) => (
+          <CarouselCard key={key} imageUrl={imageUrl} />
         ))}
-        {' '}
       </div>
     );
   }
