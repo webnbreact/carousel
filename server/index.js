@@ -16,6 +16,7 @@ app.use(express.static('public'));
 app.get('/rooms/:id/pictures', (req, res) => {
   findPicturesByRoomId(req.params.id)
     .then((images) => {
+      res.header('Access-Control-Allow-Origin', '*');
       res.send(images.image_url);
     });
 });

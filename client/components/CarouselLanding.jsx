@@ -1,18 +1,42 @@
 /* eslint-disable no-useless-constructor */
 /* eslint-disable class-methods-use-this */
 import React from 'react';
+import axios from 'axios';
+import url from 'url';
+import CarouselCard from './CarouselCard';
 
 class CarouselLanding extends React.Component {
   constructor() {
     super();
     this.state = {
-      image_url: [],
+      imageUrls: [],
     };
   }
 
+  componentDidMount() {
+    const currentUrl = window.location.pathname;
+    const dbLocation = 'http://localhost:4500';
+    const postUrl = url.resolve(dbLocation, currentUrl);
+    this.getDataFromServer(postUrl)
+      .then((data) => {
+        this.setState({ imageUrls: data });
+      });
+  }
+
+  getDataFromServer(postUrl) {
+    return axios.get(postUrl)
+      .then(response => (response.data));
+  }
+
   render() {
+    const { imageUrls } = this.state;
+
     return (
-      <div> Hot moduddle repalcement!! </div>
+      <div>
+        {imageUrls.map((imageUrl, key) => (
+          <CarouselCard key={key} imageUrl={imageUrl} />
+        ))}
+      </div>
     );
   }
 }
