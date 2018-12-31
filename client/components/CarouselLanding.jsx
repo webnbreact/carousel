@@ -3,27 +3,11 @@
 import React from 'react';
 import axios from 'axios';
 import url from 'url';
-// import { Grid } from '../css/CarouselLanding';
 import styled from 'styled-components';
+import { BrowserRouter as Brouter, Switch, Route, Link } from 'react-router-dom';
+import { withRouter } from 'react-router';
 import CarouselCard from './CarouselCard';
 
-// const Wrapper = styled.div`
-
-//   img:first-of-type {
-//     max-width: 40%;
-//     max-height: 40%;
-//     overflow:hidden;
-//   }
-//   img:nth-of-type(n+2) {
-
-//     margin: 1px;
-
-//     max-height: 150px;
-//     max-width: 150px;
-//     overflow: hidden;
-//   }
-
-// `;
 const LandingPhotoGrid = styled.div`
   display: grid;
   grid-template-columns: auto 350px 350px;
@@ -55,12 +39,11 @@ class CarouselLanding extends React.Component {
     };
   }
 
-
   componentDidMount() {
-    const currentUrl = window.location.href;
+    let { location, match, history } = this.props;
+    // console.log(location, match, history);
     const dbLocation = 'http://localhost:4500';
-    const pathName = url.parse(currentUrl).pathname;
-    const postUrl = url.resolve(dbLocation, pathName);
+    const postUrl = url.resolve(dbLocation, match.url);
     this.getDataFromServer(postUrl)
       .then((data) => {
         this.setState({ imageUrls: data });
@@ -74,7 +57,6 @@ class CarouselLanding extends React.Component {
 
   render() {
     const { imageUrls } = this.state;
-
     return (
       <LandingPhotoGrid>
         <MainLandingPhotoStyled>
@@ -82,9 +64,11 @@ class CarouselLanding extends React.Component {
         </MainLandingPhotoStyled>
         <SideLandingPhotoGrid>
           {
-            imageUrls.map((imageUrl, key) => (
-              <CarouselCard key={key} imageUrl={imageUrl} />
-            )).slice(1)
+            imageUrls.map((imageUrl, idx) => {
+              return (
+                <CarouselCard key={idx} imageUrl={imageUrl} />
+              );
+            }).slice(1)
           }
         </SideLandingPhotoGrid>
       </LandingPhotoGrid>
@@ -93,4 +77,4 @@ class CarouselLanding extends React.Component {
   }
 }
 
-export default CarouselLanding;
+export default withRouter(CarouselLanding);
