@@ -8,11 +8,11 @@ import CarouselCard from '../client/components/CarouselCard';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('Carousel Landing', () => {
-  it('to exist', () => {
+  it('should exist exist', () => {
     const tree = shallow(<CarouselLanding />);
     expect(toJson(tree)).toMatchSnapshot();
   });
-  it('to render five carousel card components', () => {
+  it('should render four Carousel Card components', () => {
     const tree = shallow(<CarouselLanding />);
     tree.setState({
       imageUrls: [

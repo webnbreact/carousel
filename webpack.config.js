@@ -6,8 +6,6 @@ const config = {
     contentBase: __dirname,
     publicPath: '/public/dist/',
     port: 8081,
-    // contentBase: ''),
-    // index: path.join(__dirname, 'public/index.html'),
     historyApiFallback: true,
     hot: true,
     disableHostCheck: true,

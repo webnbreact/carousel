@@ -41,9 +41,10 @@ class CarouselLanding extends React.Component {
 
   componentDidMount() {
     let { location, match, history } = this.props;
-    // console.log(location, match, history);
+    
     const dbLocation = 'http://localhost:4500';
     const postUrl = url.resolve(dbLocation, location.pathname);
+    
     this.getDataFromServer(postUrl)
       .then((data) => {
         this.setState({ imageUrls: data });
