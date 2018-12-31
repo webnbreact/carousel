@@ -31,11 +31,10 @@ const Wrap = styled.span`
   
 `;
 const CarouselCard = (props) => {
-  const { imageUrl, key } = props;
-
+  const { imageUrl, key, handleModalClick } = props;
   return (
     <Wrap>
-      <Image value={key} imageUrl={imageUrl} key={key} alt="pictures" />
+      <Image onClick={handleModalClick} value={key} imageUrl={imageUrl} key={key} alt="pictures" />
     </Wrap>
   );
 };

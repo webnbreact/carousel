@@ -32,8 +32,8 @@ const SideLandingPhotoGrid = styled.div`
 `;
 
 class CarouselLanding extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       imageUrls: [],
     };
@@ -43,7 +43,7 @@ class CarouselLanding extends React.Component {
     let { location, match, history } = this.props;
     // console.log(location, match, history);
     const dbLocation = 'http://localhost:4500';
-    const postUrl = url.resolve(dbLocation, match.url);
+    const postUrl = url.resolve(dbLocation, location.pathname);
     this.getDataFromServer(postUrl)
       .then((data) => {
         this.setState({ imageUrls: data });
@@ -57,24 +57,25 @@ class CarouselLanding extends React.Component {
 
   render() {
     const { imageUrls } = this.state;
+    const { handleModalClick } = this.props;
     return (
       <LandingPhotoGrid>
         <MainLandingPhotoStyled>
-          <CarouselCard imageUrl={imageUrls[0]} />
+          <CarouselCard handleModalClick={handleModalClick} imageUrl={imageUrls[0]} />
         </MainLandingPhotoStyled>
         <SideLandingPhotoGrid>
           {
             imageUrls.map((imageUrl, idx) => {
               return (
-                <CarouselCard key={idx} imageUrl={imageUrl} />
+                <CarouselCard handleModalClick={handleModalClick} key={idx} imageUrl={imageUrl} />
               );
             }).slice(1)
           }
         </SideLandingPhotoGrid>
       </LandingPhotoGrid>
-
     );
   }
 }
+
 
 export default withRouter(CarouselLanding);
