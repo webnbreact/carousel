@@ -2,10 +2,6 @@ import React from 'react';
 import { render } from 'react-dom';
 import CarouselCentral from './CarouselCentral';
 
-// constructor() {
-//   super();
-// }
-// render() {
 const ModuleRefresh = () => {
   render(<CarouselCentral />, document.getElementById('carouselroot'));
 };

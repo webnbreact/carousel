@@ -24,21 +24,23 @@ import CarouselCard from './CarouselCard';
 //   }
 
 // `;
-const Wrapper = styled.div`
+const LandingPhotoGrid = styled.div`
   display: grid;
   grid-template-columns: auto 350px 350px;
   grid-auto-rows: 350px
   gap: 0px;
   column-gap: 0px;
+  margin-left: 10%;
+  margin-right: 10%;
 `;
 
-const OneLot = styled.div`
+const MainLandingPhotoStyled = styled.div`
   display: grid;
   grid-column: 1/3;
   gap: 0px;
 `;
 
-const FourLot = styled.div`
+const SideLandingPhotoGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   border:1px solid transparent;
@@ -74,18 +76,18 @@ class CarouselLanding extends React.Component {
     const { imageUrls } = this.state;
 
     return (
-      <Wrapper>
-        <OneLot>
+      <LandingPhotoGrid>
+        <MainLandingPhotoStyled>
           <CarouselCard imageUrl={imageUrls[0]} />
-        </OneLot>
-        <FourLot>
+        </MainLandingPhotoStyled>
+        <SideLandingPhotoGrid>
           {
             imageUrls.map((imageUrl, key) => (
               <CarouselCard key={key} imageUrl={imageUrl} />
             )).slice(1)
           }
-        </FourLot>
-      </Wrapper>
+        </SideLandingPhotoGrid>
+      </LandingPhotoGrid>
 
     );
   }
