@@ -32,12 +32,28 @@ mongoose
     );
 
     const pictureMaker = mongoose.model('picture', roomPicturesSchema);
-    var collections = [];
+    const collections = [];
+
+    const imageOptions = [
+      "animals",
+      "business",
+      "cats",
+      "city",
+      "food",
+      "nightlife",
+      "fashion",
+      "people",
+      "nature",
+      "sports",
+      "technics",
+      "transport"
+    ];
+
     for (let i = 0; i < 100; i++) {
-      var temp = [];
-      for (let j = 0; j < 5; j++) {
-        var tempo = faker.image.imageUrl();
-        temp.push(tempo);
+      const temp = [];
+      for (let j = 0; j < 14; j++) {
+        const currUrl = faker.image[imageOptions[j % imageOptions.length]]();
+        temp.push(currUrl);
       }
       var obj = {
         name: faker.name.findName(),

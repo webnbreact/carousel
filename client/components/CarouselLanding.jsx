@@ -40,15 +40,15 @@ class CarouselLanding extends React.Component {
   }
 
   componentDidMount() {
-    let { location, match, history } = this.props;
-    
+    let { location, match, history, handleGetPictures } = this.props;
+
     const dbLocation = 'http://localhost:4500';
     const postUrl = url.resolve(dbLocation, location.pathname);
-    
 
     this.getDataFromServer(postUrl)
       .then((data) => {
-        this.setState({ imageUrls: data });
+        this.setState({ imageUrls: data })
+        handleGetPictures(data);
       });
   }
 
@@ -71,7 +71,7 @@ class CarouselLanding extends React.Component {
               return (
                 <CarouselCard handleModalClick={handleModalClick} key={idx} imageUrl={imageUrl} />
               );
-            }).slice(1)
+            }).slice(1, 5)
           }
         </SideLandingPhotoGrid>
       </LandingPhotoGrid>
