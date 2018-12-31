@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-
-const Image = styled.img`
+const Image = styled.div`
 
   border: 1px solid black;
   background: no-repeat url(${({ imageUrl }) => imageUrl});
@@ -13,7 +12,6 @@ const Image = styled.img`
   :hover {
   color: #424242; 
   background-size:cover;
-
   -webkit-transition: all .3s ease-out;
   -moz-transition: all .3s ease-out;
   -ms-transition: all .3s ease-out;
@@ -32,11 +30,13 @@ const Wrap = styled.span`
   border: 1px solid transparent;
   
 `;
-const CarouselCard = ({ imageUrl, key }) => (
-  <Wrap>
-    <Image imageUrl={imageUrl} key={key} alt="pictures" />
-  </Wrap>
-
-);
+const CarouselCard = (props) => {
+  const { imageUrl, key, handleModalClick } = props;
+  return (
+    <Wrap>
+      <Image onClick={handleModalClick} value={key} imageUrl={imageUrl} key={key} alt="pictures" />
+    </Wrap>
+  );
+};
 
 export default CarouselCard;

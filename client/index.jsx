@@ -1,9 +1,9 @@
 import React from 'react';
 import { render } from 'react-dom';
-import CarouselCentral from './CarouselCentral';
+import CarouselLauncher from './CarouselCentral';
 
 const ModuleRefresh = () => {
-  render(<CarouselCentral />, document.getElementById('carouselroot'));
+  render(<CarouselLauncher />, document.getElementById('carouselroot'));
 };
 
 ModuleRefresh();

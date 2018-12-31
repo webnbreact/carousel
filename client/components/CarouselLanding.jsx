@@ -3,27 +3,11 @@
 import React from 'react';
 import axios from 'axios';
 import url from 'url';
-// import { Grid } from '../css/CarouselLanding';
 import styled from 'styled-components';
+import { BrowserRouter as Brouter, Switch, Route, Link } from 'react-router-dom';
+import { withRouter } from 'react-router';
 import CarouselCard from './CarouselCard';
 
-// const Wrapper = styled.div`
-
-//   img:first-of-type {
-//     max-width: 40%;
-//     max-height: 40%;
-//     overflow:hidden;
-//   }
-//   img:nth-of-type(n+2) {
-
-//     margin: 1px;
-
-//     max-height: 150px;
-//     max-width: 150px;
-//     overflow: hidden;
-//   }
-
-// `;
 const LandingPhotoGrid = styled.div`
   display: grid;
   grid-template-columns: auto 350px 350px;
@@ -48,18 +32,20 @@ const SideLandingPhotoGrid = styled.div`
 `;
 
 class CarouselLanding extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       imageUrls: [],
     };
   }
 
-
   componentDidMount() {
-    const currentUrl = window.location.pathname;
+    let { location, match, history } = this.props;
+    
     const dbLocation = 'http://localhost:4500';
-    const postUrl = url.resolve(dbLocation, currentUrl);
+    const postUrl = url.resolve(dbLocation, location.pathname);
+    
+
     this.getDataFromServer(postUrl)
       .then((data) => {
         this.setState({ imageUrls: data });
@@ -73,23 +59,25 @@ class CarouselLanding extends React.Component {
 
   render() {
     const { imageUrls } = this.state;
-
+    const { handleModalClick } = this.props;
     return (
       <LandingPhotoGrid>
         <MainLandingPhotoStyled>
-          <CarouselCard imageUrl={imageUrls[0]} />
+          <CarouselCard handleModalClick={handleModalClick} imageUrl={imageUrls[0]} />
         </MainLandingPhotoStyled>
         <SideLandingPhotoGrid>
           {
-            imageUrls.map((imageUrl, key) => (
-              <CarouselCard key={key} imageUrl={imageUrl} />
-            )).slice(1)
+            imageUrls.map((imageUrl, idx) => {
+              return (
+                <CarouselCard handleModalClick={handleModalClick} key={idx} imageUrl={imageUrl} />
+              );
+            }).slice(1)
           }
         </SideLandingPhotoGrid>
       </LandingPhotoGrid>
-
     );
   }
 }
 
-export default CarouselLanding;
+
+export default withRouter(CarouselLanding);
