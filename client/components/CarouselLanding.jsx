@@ -4,7 +4,7 @@ import React from 'react';
 import axios from 'axios';
 import url from 'url';
 import styled from 'styled-components';
-import { BrowserRouter as Brouter, Switch, Route, Link } from 'react-router-dom';
+// import { BrowserRouter as Brouter, Switch, Route, Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import CarouselCard from './CarouselCard';
 

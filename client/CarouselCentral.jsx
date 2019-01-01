@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Brouter, Switch, Route } from 'react-router-dom';
-import styled, { createGlobalStyle } from 'styled-components';
+import { BrowserRouter as Brouter, Route } from 'react-router-dom';
 import CarouselLanding from './components/CarouselLanding';
-import getPicturesFromServer from './components/Temp';
-import CarouselCard from './components/CarouselCard';
-import Modal from './components/Modal'
+import Modal from './components/Modal';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class CarouselCentral extends Component {
@@ -26,13 +23,13 @@ class CarouselCentral extends Component {
     console.log(currPicIdx);
     this.setState({
       modal: !modal,
-      currPicIdx: currPicIdx
+      currPicIdx,
     });
   }
 
   handleGetPictures(imageUrls) {
     this.setState({
-      imageUrls: imageUrls,
+      imageUrls,
     });
   }
 
@@ -41,8 +38,23 @@ class CarouselCentral extends Component {
 
     return (
       <div style={{ width: '90%' }}>
-        <CarouselLanding currPicIdx={currPicIdx} picAmt={imageUrls.length} inModal={modal} handleGetPictures={(imageUrls) => { this.handleGetPictures(imageUrls); }} handleModalClick={this.handleModalClick} />
-        {modal && <Modal currPicIdx={currPicIdx} picAmt={imageUrls.length} inModal={modal} imageUrls={imageUrls} handleModalClick={this.handleModalClick} />}
+        <CarouselLanding
+          currPicIdx={currPicIdx}
+          picAmt={imageUrls.length}
+          inModal={modal}
+          handleGetPictures={(imageUrls) => { this.handleGetPictures(imageUrls); }}
+          handleModalClick={this.handleModalClick} />
+
+        {modal && (
+          <Modal
+            currPicIdx={currPicIdx}
+            picAmt={imageUrls.length}
+            inModal={modal}
+            imageUrls={imageUrls}
+            handleModalClick={this.handleModalClick}
+          />
+        )
+        }
       </div>
     );
   }
