@@ -11,19 +11,19 @@ class CarouselCentral extends Component {
     this.state = {
       isModal: false,
       imageUrls: [],
-      currPicIdx: 1,
+      highlightedPicIdx: 1,
     };
     this.handleModalClick = this.handleModalClick.bind(this);
     this.handleGetPictures = this.handleGetPictures.bind(this);
   }
 
-  handleModalClick(e = null, currPicIdx = 0) {
+  handleModalClick(e = null, highlightedPicIdx = 0) {
     e.preventDefault();
     const { isModal } = this.state;
-    console.log(currPicIdx);
+    console.log(highlightedPicIdx);
     this.setState({
       isModal: !isModal,
-      currPicIdx,
+      highlightedPicIdx,
     });
   }
 
@@ -34,12 +34,12 @@ class CarouselCentral extends Component {
   }
 
   render() {
-    const { isModal, imageUrls, currPicIdx } = this.state;
+    const { isModal, imageUrls, highlightedPicIdx } = this.state;
 
     return (
       <div style={{ width: '90%' }}>
         <CarouselLanding
-          currPicIdx={currPicIdx}
+          highlightedPicIdx={highlightedPicIdx}
           picAmt={imageUrls.length}
           inModal={isModal}
           handleGetPictures={(imageUrls) => { this.handleGetPictures(imageUrls); }}
@@ -48,7 +48,7 @@ class CarouselCentral extends Component {
 
         {isModal && (
           <Modal
-            currPicIdx={currPicIdx}
+            highlightedPicIdx={highlightedPicIdx}
             picAmt={imageUrls.length}
             inModal={isModal}
             imageUrls={imageUrls}
