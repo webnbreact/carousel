@@ -63,7 +63,7 @@ class CarouselLanding extends React.Component {
     return (
       <LandingPhotoGrid>
         <MainLandingPhotoStyled>
-          <CarouselCard inModal handleModalClick={handleModalClick} avalue="0" imageUrl={imageUrls[0]} />
+          <CarouselCard inModal handleModalClick={handleModalClick} avalue={0} imageUrl={imageUrls[0]} />
         </MainLandingPhotoStyled>
         <SideLandingPhotoGrid>
           {
