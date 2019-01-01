@@ -1,0 +1,141 @@
+* 832085b 2019-01-01 | Smooth the darken transitions for conditional lighting. (HEAD -> wip/v1.1-conditional-lighting, origin/wip/v1.1-conditional-lighting) [mariomui]
+* a7059d2 2019-01-01 | Add conditional lighting on SplashPage (origin/wip/v1.0-conditional-lighting, wip/v1.0-conditional-lighting) [mariomui]
+*   9b8fa53 2019-01-01 | Merge pull request #26 from webnbreact/misc/v1.0-Modal-refactor (master) [Yi Kan Mario Mui]
+|\  
+| * 98fbf1c 2019-01-01 | Refactor Modal Component (origin/misc/v1.0-Modal-refactor, misc/v1.0-Modal-refactor) [mariomui]
+* |   16241da 2019-01-01 | Merge pull request #25 from webnbreact/feat/v1.5-slideshow [Yi Kan Mario Mui]
+|\ \  
+| |/  
+| * 7bba6de 2019-01-01 | Completed Carousel module to basic reqs (origin/feat/v1.5-slideshow, feat/v1.5-slideshow) [mariomui]
+* |   6e2f023 2019-01-01 | Merge pull request #24 from webnbreact/wip/v1.3-slideshow [Yi Kan Mario Mui]
+|\ \  
+| |/  
+| * 0037326 2019-01-01 | Add Next Slide capability to Carousel (origin/wip/v1.3-slideshow, wip/v1.4-slideshow, wip/v1.3-slideshow) [mariomui]
+* |   4b9fc53 2018-12-31 | Merge pull request #23 from webnbreact/wip/v1.2-slideshow [Yi Kan Mario Mui]
+|\ \  
+| |/  
+| * 45d7318 2018-12-31 | Add feature click specific pic, go to specific pic (origin/wip/v1.2-slideshow, wip/v1.2-slideshow) [mariomui]
+* |   38ca3d5 2018-12-31 | Merge pull request #22 from webnbreact/wip/v1.1-slideshow [Yi Kan Mario Mui]
+|\ \  
+| |/  
+| * f0b754f 2018-12-31 | Add conditional css to make zoom only work on Non-modal CarouselCard (origin/wip/v1.1-slideshow, wip/v1.1-slideshow) [mariomui]
+* |   2662f93 2018-12-31 | Merge pull request #21 from webnbreact/wip/v1.1-slideshow [Yi Kan Mario Mui]
+|\ \  
+| |/  
+| * 3dc0aed 2018-12-31 | Refactor Modal into own file [mariomui]
+|/  
+*   78f36f7 2018-12-31 | Merge pull request #20 from webnbreact/feat/v1.0-routing (wip/v1.0-slideshow) [Yi Kan Mario Mui]
+|\  
+| *   13dac25 2018-12-31 | Merge branch 'master' into feat/v1.0-routing (origin/feat/v1.0-routing) [Yi Kan Mario Mui]
+| |\  
+| |/  
+|/|   
+* |   baef280 2018-12-31 | Merge pull request #19 from webnbreact/feat/v1.5-stylized-cards [Yi Kan Mario Mui]
+|\ \  
+| | *   aec1fca 2018-12-31 | Merge branch 'master' into feat/v1.0-routing [Yi Kan Mario Mui]
+| | |\  
+| |_|/  
+|/| |   
+* | |   eb06e26 2018-12-28 | Merge pull request #18 from webnbreact/feat/v1.3-styling-Cards [Yi Kan Mario Mui]
+|\ \ \  
+| * | | 62de268 2018-12-28 | Remove extraneous parse [Yi Kan Mario Mui]
+| * | | fcf9da8 2018-12-28 | Fix test description names [Yi Kan Mario Mui]
+* | | |   582d3dd 2018-12-25 | Merge pull request #15 from webnbreact/feat/v1.1-hot-module [Yi Kan Mario Mui]
+|\ \ \ \  
+| * | | | 8d2a1fc 2018-12-25 | Removed unnecessary comments. [Yi Kan Mario Mui]
+| * | | | 72e45d0 2018-12-25 | Removed unnecessary comments [Yi Kan Mario Mui]
+| | | | * 5905007 2018-12-31 | Added a close button to Modal (feat/v1.0-routing) [mariomui]
+| | | | * f47d4c3 2018-12-30 | Setup basic withRouter and routing (wip/v1.0-routing) [mariomui]
+| | | |/  
+| | | * a3066d7 2018-12-30 | Renamed the styled components (origin/feat/v1.5-stylized-cards, feat/v1.5-stylized-cards) [mariomui]
+| | | * 9692d86 2018-12-30 | Implement Zoom-in on Cards [mariomui]
+| | |/  
+| | * be64407 2018-12-27 | Styled cards to mimic airbnb splash page (wip/v1.3-styling-Cards) [mariomui]
+| | * f4fbbec 2018-12-27 | Remove chai package [mariomui]
+| | * 979e286 2018-12-27 | Fix Enzyme Errors (origin/feat/v1.2-Landing, feat/v1.2-Landing) [mariomui]
+| | * 655629d 2018-12-27 | Add Picture Card component [mariomui]
+| | * caf413c 2018-12-25 | Beginning to implement a handleImageLoad to delay incoming data. (wip/v1.2-Landing) [mariomui]
+| | * 74ed68f 2018-12-25 | Necessary Server Changes After Client Update (feat/v1.1-Landing) [mariomui]
+| | * ae2ce5a 2018-12-25 | Created barebones Landing Component [mariomui]
+| |/  
+| * 00fd462 2018-12-25 | Renamed Landing to CarouselLanding (wip/v1.0-Landing, feat/v1.1-hot-module) [mariomui]
+| * 55aec80 2018-12-25 | Fix some spelling mistakes and airbnb format. [mariomui]
+| * e6a8d20 2018-12-25 | Add Hot Module Replacement to webpack [mariomui]
+|/  
+* e9a1f9e 2018-12-25 | Hotfix#2 web-dev-server (wip/v1.0-hot-module) [mariomui]
+* d3b2670 2018-12-25 | hotfix with webdev server [mariomui]
+*   cfaeee1 2018-12-25 | Merge pull request #13 from webnbreact/feat/v1.3-jest-enz-wds [Yi Kan Mario Mui]
+|\  
+| * 45e2060 2018-12-23 | Added webpack-dev-server (origin/feat/v1.3-jest-enz-wds, feat/v1.3-jest-enz-wds) [mariomui]
+* |   6061215 2018-12-25 | Merge pull request #12 from webnbreact/feat/v1.1-jest-enzyme [Yi Kan Mario Mui]
+|\ \  
+| * \   131ea17 2018-12-25 | Merge branch 'master' into feat/v1.1-jest-enzyme (origin/feat/v1.1-jest-enzyme) [Yi Kan Mario Mui]
+| |\ \  
+| |/ /  
+|/| /   
+| |/    
+* | c28f622 2018-12-23 | minor updates to package.json meta [mariomui]
+* | 31d8990 2018-12-23 | Update Readme.md with a few dev usage tweaks [Yi Kan Mario Mui]
+| * 5cffc0b 2018-12-22 | Add a jest/enzyme snapshot test for Landing Component (wip/v1.2-jest-enz-wds, feat/v1.1-jest-enzyme) [mariomui]
+|/  
+*   17465f3 2018-12-22 | Merge branch 'master' of https://github.com/webnbreact/carousel (wip/v1.0-jest-enzyme) [mariomui]
+|\  
+| *   11fccb6 2018-12-21 | Merge pull request #11 from webnbreact/eslintignore-file [Johnson]
+| |\  
+| | * eb542ef 2018-12-21 | eslint ignore node modules (origin/eslintignore-file, eslintignore-file) [mariomui]
+| |/  
+* | 0748573 2018-12-22 | Minor update to the readme regarding the purpose of the module. [mariomui]
+|/  
+*   bcd32f8 2018-12-21 | Merge pull request #10 from webnbreact/merge-conflicts (display-pictures-on-roomid) [Johnson]
+|\  
+| * 5837237 2018-12-21 | Merge Conflicts (origin/merge-conflicts, merge-conflicts) [mariomui]
+|/  
+*   47be21e 2018-12-21 | Merge pull request #9 from webnbreact/landing-page [Yi Kan Mario Mui]
+|\  
+| *   1c2bd0b 2018-12-21 | Merge branch 'master' into landing-page (origin/landing-page) [Yi Kan Mario Mui]
+| |\  
+| |/  
+|/|   
+* |   3e6fbd9 2018-12-21 | Merge pull request #8 from webnbreact/queryAPIcall [Yi Kan Mario Mui]
+|\ \  
+| * | 0e0852b 2018-12-21 | Removed unnecessary console.log (origin/queryAPIcall) [Yi Kan Mario Mui]
+| | * c19d60e 2018-12-21 | Updated comments and reorganized [Yi Kan Mario Mui]
+| | * 64fc7cc 2018-12-21 | Prototype Landing page (landing-page) [mariomui]
+| | * 901ae1d 2018-12-21 | basic react test [mariomui]
+| |/  
+| * 62062ed 2018-12-21 | Readded queryAPICALL due to webpack breaking (queryAPIcall) [mariomui]
+| * df54cfd 2018-12-21 | Made a db query to find pictures by id (startup-picture-splash) [mariomui]
+|/  
+*   8d72684 2018-12-20 | Merge pull request #7 from webnbreact/webpack-setup [Yi Kan Mario Mui]
+|\  
+| *   14585f3 2018-12-20 | Merge branch 'master' into webpack-setup (origin/webpack-setup) [Yi Kan Mario Mui]
+| |\  
+| |/  
+|/|   
+* |   4032f05 2018-12-20 | Merge pull request #4 from webnbreact/mongodb-setup [Johnson]
+|\ \  
+| * | 2f6ae2e 2018-12-20 | database mongodb setup (origin/mongodb-setup, mongodb-setup) [mariomui]
+|/ /  
+| * b1c9c20 2018-12-20 | webpack setup (webpack-setup) [mariomui]
+|/  
+*   dc8bfac 2018-12-20 | Merge branch 'master' of https://github.com/webnbreact/carousel [mariomui]
+|\  
+| *   1e266e2 2018-12-20 | Merge pull request #2 from webnbreact/express-server-setup [Yi Kan Mario Mui]
+| |\  
+* | \   1a0d9ac 2018-12-20 | Merged Seeding Feature [mariomui]
+|\ \ \  
+| |_|/  
+|/| |   
+| * | ecdf2c6 2018-12-20 | Resolve merge conflicts with dependencies (origin/feature-seed, feature-seed) [mariomui]
+| * | 5bbd5d4 2018-12-20 | Replaced doublequotes with singlequotes [mariomui]
+| * |   05f59fc 2018-12-20 | Merge branch 'feature-seed' of https://github.com/webnbreact/carousel into feature-seed [mariomui]
+| |\ \  
+| | * | 035c287 2018-12-20 | Remove Comments [Yi Kan Mario Mui]
+| * | | a00b29e 2018-12-20 | Add gitignore to ignore launch.json [mariomui]
+| |/ /  
+| * | a71b7e4 2018-12-20 | Add Seeding [mariomui]
+* | | 56e647d 2018-12-20 | Setup server (origin/express-server-setup, express-server-setup) [mariomui]
+|/ /  
+* | ec5a772 2018-12-19 | Tell git not to upload proxy-server [mariomui]
+|/  
+* b325e66 2018-12-18 | first commit [mariomui]
