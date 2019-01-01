@@ -11,6 +11,13 @@ const Image = styled.div`
   min-height: 100%;
   width: 500px;
   height: 300px;
+  ${({ currPicIdx, avalue }) => (currPicIdx !== avalue) && css`
+    background-color: black;
+    border: 5px solid red;
+    opacity: .20;
+  `}
+  
+
   ${({ inModal }) => inModal && css`
   : hover {
   color: #424242;
@@ -43,10 +50,20 @@ const OverFlowWrap = styled.div`
 `;
 
 const CarouselCard = (props) => {
-  const { inModal, imageUrl, avalue, handleModalClick } = props;
+  const { currPicIdx, handleHover, inModal, imageUrl, avalue, handleModalClick } = props;
   return (
     <OverFlowWrap inModal={inModal}>
-      <Image inModal={inModal} onClick={(e) => { handleModalClick(e, avalue); }} avalue={avalue} imageUrl={imageUrl} key={avalue} alt="pictures" />
+      <Image
+        currPicIdx={currPicIdx}
+        onFocus={(e) => { handleHover(e, avalue); }}
+        onMouseOver={(e) => { handleHover(e, avalue); }}
+        inModal={inModal}
+        onClick={(e) => { handleModalClick(e, avalue); }}
+        avalue={avalue}
+        imageUrl={imageUrl}
+        key={avalue}
+        alt="pictures"
+      />
     </OverFlowWrap>
   );
 };
