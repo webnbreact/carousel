@@ -20,7 +20,7 @@ class CarouselCentral extends Component {
     this.handleGetPictures = this.handleGetPictures.bind(this);
   }
 
-  handleModalClick(e = null, currPicIdx) {
+  handleModalClick(e = null, currPicIdx = 0) {
     e.preventDefault();
     const { modal } = this.state;
     console.log(currPicIdx);
@@ -41,8 +41,8 @@ class CarouselCentral extends Component {
 
     return (
       <div style={{ width: '90%' }}>
-        <CarouselLanding currPicIdx={currPicIdx} inModal={modal} handleGetPictures={(imageUrls) => { this.handleGetPictures(imageUrls); }} handleModalClick={this.handleModalClick} />
-        {modal && <Modal currPicIdx={currPicIdx} inModal={modal} imageUrls={imageUrls} handleModalClick={this.handleModalClick} />}
+        <CarouselLanding currPicIdx={currPicIdx} picAmt={imageUrls.length} inModal={modal} handleGetPictures={(imageUrls) => { this.handleGetPictures(imageUrls); }} handleModalClick={this.handleModalClick} />
+        {modal && <Modal currPicIdx={currPicIdx} picAmt={imageUrls.length} inModal={modal} imageUrls={imageUrls} handleModalClick={this.handleModalClick} />}
       </div>
     );
   }

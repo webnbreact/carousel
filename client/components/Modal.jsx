@@ -46,7 +46,7 @@ function SlideShow(props) {
   const { imageUrls, picIndex } = props;
   return (
     <SlideShowFlex>
-      <img src={imageUrls[picIndex]} alt="somehing" />
+      <img src={imageUrls[picIndex % imageUrls.length]} alt="somehing" />
     </SlideShowFlex>
 
   );
@@ -105,33 +105,51 @@ const SlideShowStyled = styled.div`
   position: relative;
 `;
 
-function Modal({ inModal, handleModalClick, imageUrls, currPicIdx }) {
-  const style = {
-    position: 'absolute',
-    top: 0, left: 0, bottom: 0, right: 0, height: '5000px', background: "rgba(0, 0, 0, 0.8)"
-  };
-  return (
+class Modal extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      num: 0,
+    };
+  }
 
-    <div style={style}>
-      <HideOverFlow />
+  incrementNum() {
+    const { num } = this.state;
+    this.setState({ num: num + 1 });
+  }
 
-      <ModalStyled>
-        <SlideShowGrid top={window.scrollY + (window.innerHeight / 2) - 370}>
-          <CloseButtonStyled onClick={handleModalClick} />
-          <SlideShowFlex>
-            <GoLeftStyled top={window.scrollY + (window.innerHeight / 2) - 200} />
-            <SlideShowStyled right={window.innerWidth / 2}>
-              <SlideShow inModal={inModal} imageUrls={imageUrls} picIndex={currPicIdx} />
-            </SlideShowStyled>
+  render() {
+    const style = {
+      position: 'absolute',
+      top: 0, left: 0, bottom: 0, right: 0, height: '5000px', background: "rgba(0, 0, 0, 0.8)"
+    };
 
-            <GoRightStyled top={window.scrollY + (window.innerHeight / 2) - 200} />
+    const { inModal, handleModalClick, imageUrls, currPicIdx, picAmt } = this.props;
+    let newIndex = (currPicIdx + this.state.num) % picAmt;
+    return (
 
-          </SlideShowFlex>
+      <div style={style}>
+        <HideOverFlow />
 
-        </SlideShowGrid>
-      </ModalStyled>
-    </div>
-  );
+        <ModalStyled>
+          <SlideShowGrid top={window.scrollY + (window.innerHeight / 2) - 370}>
+            <CloseButtonStyled onClick={handleModalClick} />
+            <SlideShowFlex>
+              <GoLeftStyled top={window.scrollY + (window.innerHeight / 2) - 200} />
+              <SlideShowStyled right={window.innerWidth / 2}>
+                <SlideShow inModal={inModal} imageUrls={imageUrls} picIndex={newIndex} />
+              </SlideShowStyled>
+
+              <GoRightStyled onClick={() => { this.incrementNum() }} top={window.scrollY + (window.innerHeight / 2) - 200} />
+
+            </SlideShowFlex>
+
+          </SlideShowGrid>
+        </ModalStyled>
+      </div>
+    );
+  }
 }
+
 
 export default Modal;
