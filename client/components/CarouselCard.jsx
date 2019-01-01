@@ -29,7 +29,7 @@ const Image = styled.div`
   `}
 `;
 
-const Wrap = styled.div`
+const OverFlowWrap = styled.div`
   position: relative;
   overflow: hidden;
   border: 1px solid transparent;
@@ -43,11 +43,11 @@ const Wrap = styled.div`
 `;
 
 const CarouselCard = (props) => {
-  const { inModal, imageUrl, key, handleModalClick } = props;
+  const { inModal, imageUrl, avalue, handleModalClick } = props;
   return (
-    <Wrap inModal={inModal}>
-      <Image inModal={inModal} onClick={handleModalClick} value={key} imageUrl={imageUrl} key={key} alt="pictures" />
-    </Wrap>
+    <OverFlowWrap inModal={inModal}>
+      <Image inModal={inModal} onClick={(e) => { handleModalClick(e, avalue); }} avalue={avalue} imageUrl={imageUrl} key={avalue} alt="pictures" />
+    </OverFlowWrap>
   );
 };
 

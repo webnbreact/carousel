@@ -1,3 +1,6 @@
+/* eslint-disable prefer-arrow-callback */
+/* eslint-disable func-names */
+/* eslint-disable no-var */
 const faker = require('faker');
 const mongoose = require('mongoose');
 // const Promise = require('bluebird');
@@ -35,18 +38,18 @@ mongoose
     const collections = [];
 
     const imageOptions = [
-      "animals",
-      "business",
-      "cats",
-      "city",
-      "food",
-      "nightlife",
-      "fashion",
-      "people",
-      "nature",
-      "sports",
-      "technics",
-      "transport"
+      'animals',
+      'business',
+      'cats',
+      'city',
+      'food',
+      'nightlife',
+      'fashion',
+      'people',
+      'nature',
+      'sports',
+      'technics',
+      'transport',
     ];
 
     for (let i = 0; i < 100; i++) {
@@ -55,6 +58,7 @@ mongoose
         const currUrl = faker.image[imageOptions[j % imageOptions.length]]();
         temp.push(currUrl);
       }
+      // eslint-disable-next-line vars-on-top
       var obj = {
         name: faker.name.findName(),
         abstract: faker.image.abstract(),

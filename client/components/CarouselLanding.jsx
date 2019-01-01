@@ -10,12 +10,11 @@ import CarouselCard from './CarouselCard';
 
 const LandingPhotoGrid = styled.div`
   display: grid;
-  grid-template-columns: auto 350px 350px;
-  grid-auto-rows: 350px
-  gap: 0px;
-  column-gap: 0px;
-  margin-left: 10%;
-  margin-right: 10%;
+  grid-template-columns: auto 40vw 40vw;
+  grid-auto-rows: 50vh;
+  border: 3px solid purple;
+  width:98vw;
+  margin-right: 1vw;
 `;
 
 const MainLandingPhotoStyled = styled.div`
@@ -29,6 +28,7 @@ const SideLandingPhotoGrid = styled.div`
   grid-template-columns: 1fr 1fr;
   border:1px solid transparent;
   overflow:hidden;
+  border: 5px solid blue;
 `;
 
 class CarouselLanding extends React.Component {
@@ -47,7 +47,7 @@ class CarouselLanding extends React.Component {
 
     this.getDataFromServer(postUrl)
       .then((data) => {
-        this.setState({ imageUrls: data })
+        this.setState({ imageUrls: data });
         handleGetPictures(data);
       });
   }
@@ -63,13 +63,13 @@ class CarouselLanding extends React.Component {
     return (
       <LandingPhotoGrid>
         <MainLandingPhotoStyled>
-          <CarouselCard inModal handleModalClick={handleModalClick} imageUrl={imageUrls[0]} />
+          <CarouselCard inModal handleModalClick={handleModalClick} avalue="0" imageUrl={imageUrls[0]} />
         </MainLandingPhotoStyled>
         <SideLandingPhotoGrid>
           {
-            imageUrls.map((imageUrl, idx) => {
+            imageUrls.map((imageUrl, index) => {
               return (
-                <CarouselCard inModal handleModalClick={handleModalClick} key={idx} imageUrl={imageUrl} />
+                <CarouselCard inModal avalue={index} handleModalClick={handleModalClick} key={index} imageUrl={imageUrl} />
               );
             }).slice(1, 5)
           }
