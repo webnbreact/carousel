@@ -12,9 +12,9 @@ const Image = styled.div`
   width: 500px;
   height: 300px;
   ${({ currPicIdx, avalue }) => (currPicIdx !== avalue) && css`
-    background-color: black;
+    -webkit-filter: brightness(50%);
     border: 5px solid red;
-    opacity: .20;
+    transition: all .8s ease-out;
   `}
   
 
@@ -42,6 +42,7 @@ const OverFlowWrap = styled.div`
   border: 1px solid transparent;
   width: 100 %;
   height: 100 %;
+
   ${({ inModal }) => !inModal && css`
     border: 3px solid red;
     width:100%;
