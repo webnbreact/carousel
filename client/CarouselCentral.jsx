@@ -38,8 +38,8 @@ class CarouselCentral extends Component {
 
     return (
       <div>
-        <CarouselLanding handleGetPictures={(imageUrls) => { this.handleGetPictures(imageUrls); }} handleModalClick={this.handleModalClick} />
-        {modal && <Modal imageUrls={imageUrls} handleModalClick={this.handleModalClick} />}
+        <CarouselLanding inModal={modal} handleGetPictures={(imageUrls) => { this.handleGetPictures(imageUrls); }} handleModalClick={this.handleModalClick} />
+        {modal && <Modal inModal={modal} imageUrls={imageUrls} handleModalClick={this.handleModalClick} />}
       </div>
     );
   }
