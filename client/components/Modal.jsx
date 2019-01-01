@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
+import CarouselCard from './CarouselCard';
 
 const HideOverFlow = createGlobalStyle`
   body {
@@ -7,10 +8,12 @@ const HideOverFlow = createGlobalStyle`
   }
 `;
 
+
 const ModalStyled = styled.div`
   position: absolute;
-  left: 25%;
-  right: 25%;
+  border: 5px dashed yellow;
+  min-width: 960px;
+  min-height: 500px;
 `;
 
 const SlideShowGrid = styled.div`
@@ -19,23 +22,27 @@ const SlideShowGrid = styled.div`
   justify-content: center;
   background-color: white;
   top: ${({ top }) => top}px;
-  height: 305px;
+  width: 100%;
 `;
 
 const SlideShowFlex = styled.div`
   display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  border: 4px dashed orange;
+  padding: 5px;
 `;
 
 function SlideShow(props) {
   const { imageUrls } = props;
   return (
-    <div>
+    <SlideShowFlex>
       {imageUrls.map((imageUrl, index) => (<CarouselCard key={index} imageUrl={imageUrl} />))}
+    </SlideShowFlex>
 
-    </div>
   );
 }
-const TryStyled = styled.div`
+const CloseButtonStyled = styled.div`
 top:10px;
 position: relative;
   div::before {
@@ -71,11 +78,11 @@ function Modal({ handleModalClick, imageUrls, index }) {
         <HideOverFlow />
         <SlideShowGrid top={window.scrollY + (window.innerHeight / 2) - 300}>
           <div style={{ position: 'relative' }}>
-            <TryStyled>
-
-              <CloseButton onClick={handleModalClick} />
-            </TryStyled>
+            <CloseButtonStyled onClick={handleModalClick}>
+              <CloseButton />
+            </CloseButtonStyled>
           </div>
+
           <SlideShowFlex>
             <SlideShow inModal={inModal} imageUrls={imageUrls} />
           </SlideShowFlex>
