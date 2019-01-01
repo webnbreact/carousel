@@ -11,7 +11,7 @@ const Image = styled.div`
   min-height: 100%;
   width: 500px;
   height: 300px;
-  ${({ currPicIdx, avalue }) => (currPicIdx !== avalue) && css`
+  ${({ highlightedPicIdx, currPicIdx }) => (highlightedPicIdx !== currPicIdx) && css`
     -webkit-filter: brightness(50%);
     border: 5px solid red;
     transition: all .8s ease-out;
@@ -51,18 +51,18 @@ const OverFlowWrap = styled.div`
 `;
 
 const CarouselCard = (props) => {
-  const { currPicIdx, handleHover, inModal, imageUrl, avalue, handleModalClick } = props;
+  const { highlightedPicIdx, handleHover, inModal, imageUrl, currPicIdx, handleModalClick } = props;
   return (
     <OverFlowWrap inModal={inModal}>
       <Image
-        currPicIdx={currPicIdx}
-        onFocus={(e) => { handleHover(e, avalue); }}
-        onMouseOver={(e) => { handleHover(e, avalue); }}
+        highlightedPicIdx={highlightedPicIdx}
+        onFocus={(e) => { handleHover(e, currPicIdx); }}
+        onMouseOver={(e) => { handleHover(e, currPicIdx); }}
         inModal={inModal}
-        onClick={(e) => { handleModalClick(e, avalue); }}
-        avalue={avalue}
+        onClick={(e) => { handleModalClick(e, currPicIdx); }}
+        currPicIdx={currPicIdx}
         imageUrl={imageUrl}
-        key={avalue}
+        key={currPicIdx}
         alt="pictures"
       />
     </OverFlowWrap>
