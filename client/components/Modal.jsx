@@ -22,7 +22,7 @@ const ModalStyled = styled.div`
 const SlideShowGrid = styled.div`
   position: relative;
   color: green;
-  background-color: white;
+  background-color: rgb(72, 72, 72);
   top: ${({ top }) => top}px;
   width: auto;
   margin-left: 10vw;
@@ -46,7 +46,7 @@ function SlideShow(props) {
   const { imageUrls, picIndex } = props;
   return (
     <SlideShowFlex>
-      <img src={imageUrls[picIndex % imageUrls.length]} alt="somehing" />
+      <img src={imageUrls[picIndex]} alt="somehing" />
     </SlideShowFlex>
 
   );
@@ -56,43 +56,25 @@ top:10px;
 right: 5px;
 height: 100%;
 position: absolute;
-&::before {
-  content: ' X';
-  border: 1px solid blue;
-  font: 40px/100% arial, sans-serif;
-  color: gray;
-  z-index: 5
-}
-border: 1px solid brown;
 `;
 
 const GoRightStyled = styled.div`
-  height: 100%;
+  font-size: .5em;
   top: ${({ top }) => top}px;
   margin-left:3vw;
+  border: 2px solid brown;
   position: absolute;
   right: 5px;
-  min-height: 100%;
-  font-size: 100px;
-  min-width: 3vw;
-  min-height: 100%;
-  &::before{
-    content: '>'
-  }
 `;
 const GoLeftStyled = styled.div`
+  font-size: .5em;
   position: absolute;
   top: ${({ top }) => top}px;
-  height: 100%;
   left: 5px;
-  font-size: 100px;
   min-width: 3vw;
   margin-right: 3vw;
-
-  &::before{
-    content: '<';
-
-  }
+  transform: rotate(180deg);
+ 
 `;
 const SlideShowStyled = styled.div`
   height: auto;
@@ -105,17 +87,37 @@ const SlideShowStyled = styled.div`
   position: relative;
 `;
 
+const RightArrowSVG = () => (
+  <svg viewBox="0 0 18 18" role="presentation" aria-hidden="true" focusable="false" style={{ height: "4.8em", width: "4.8em", fill: "rgb(255, 255, 255)" }}><path d="m4.29 1.71a1 1 0 1 1 1.42-1.41l8 8a1 1 0 0 1 0 1.41l-8 8a1 1 0 1 1 -1.42-1.41l7.29-7.29z" fillRule="evenodd" /></svg>
+);
+
+const CloseButtonSVG = () => (
+  <svg viewBox="0 0 24 24" role="img" aria-label="Close" focusable="false" style={{ height: "2em", width: "2em", display: "block", fill: "rgb(255, 255, 255)" }}><path d="m23.25 24c-.19 0-.38-.07-.53-.22l-10.72-10.72-10.72 10.72c-.29.29-.77.29-1.06 0s-.29-.77 0-1.06l10.72-10.72-10.72-10.72c-.29-.29-.29-.77 0-1.06s.77-.29 1.06 0l10.72 10.72 10.72-10.72c.29-.29.77-.29 1.06 0s .29.77 0 1.06l-10.72 10.72 10.72 10.72c.29.29.29.77 0 1.06-.15.15-.34.22-.53.22" fillRule="evenodd" /></svg>
+);
+
 class Modal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       num: 0,
     };
+    this.incrementNum = this.incrementNum.bind(this);
   }
 
   incrementNum() {
     const { num } = this.state;
+    console.log(num);
     this.setState({ num: num + 1 });
+  }
+
+  decrementNum(picAmt) {
+    const { num } = this.state;
+    let decIdx = num - 1;
+    if (num < 0) {
+      decIdx = picAmt + num;
+    }
+    console.log(decIdx, 'this is the decremented');
+    this.setState({ num: decIdx });
   }
 
   render() {
@@ -125,7 +127,9 @@ class Modal extends React.Component {
     };
 
     const { inModal, handleModalClick, imageUrls, currPicIdx, picAmt } = this.props;
-    let newIndex = (currPicIdx + this.state.num) % picAmt;
+    let newIndex = Math.abs((currPicIdx + this.state.num) % picAmt);
+    const valignArrow = window.scrollY + (window.innerHeight / 2) - 200;
+
     return (
 
       <div style={style}>
@@ -133,23 +137,29 @@ class Modal extends React.Component {
 
         <ModalStyled>
           <SlideShowGrid top={window.scrollY + (window.innerHeight / 2) - 370}>
-            <CloseButtonStyled onClick={handleModalClick} />
+            <CloseButtonStyled onClick={handleModalClick}>
+              <CloseButtonSVG />
+            </CloseButtonStyled>
             <SlideShowFlex>
-              <GoLeftStyled top={window.scrollY + (window.innerHeight / 2) - 200} />
+              <GoLeftStyled top={valignArrow} onClick={() => { this.decrementNum(picAmt) }}>
+                <RightArrowSVG />
+              </GoLeftStyled>
               <SlideShowStyled right={window.innerWidth / 2}>
                 <SlideShow inModal={inModal} imageUrls={imageUrls} picIndex={newIndex} />
               </SlideShowStyled>
-
-              <GoRightStyled onClick={() => { this.incrementNum() }} top={window.scrollY + (window.innerHeight / 2) - 200} />
+              <GoRightStyled onClick={() => { this.incrementNum() }} top={valignArrow}>
+                <RightArrowSVG />
+              </GoRightStyled>
 
             </SlideShowFlex>
 
           </SlideShowGrid>
         </ModalStyled>
-      </div>
+      </div >
     );
   }
 }
 
-
+// remember to do this if there are namespace issues
+// babel-plugin-styled-components-css-namespace
 export default Modal;
