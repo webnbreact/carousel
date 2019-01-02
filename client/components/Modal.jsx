@@ -37,8 +37,8 @@ class Modal extends React.Component {
       top: 0, left: 0, bottom: 0, right: 0, height: '5000px', background: "rgba(0, 0, 0, 0.8)"
     };
 
-    const { inModal, handleModalClick, imageUrls, currPicIdx, picAmt } = this.props;
-    let newIndex = Math.abs((currPicIdx + this.state.num) % picAmt);
+    const { inModal, handleModalClick, imageUrls, highlightedPicIdx, picAmt } = this.props;
+    let newIndex = Math.abs((highlightedPicIdx + this.state.num) % picAmt);
     const valignArrow = window.scrollY + (window.innerHeight / 2) - 200;
 
     return (

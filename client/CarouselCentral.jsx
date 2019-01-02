@@ -9,21 +9,21 @@ class CarouselCentral extends Component {
   constructor() {
     super();
     this.state = {
-      modal: false,
+      isModal: false,
       imageUrls: [],
-      currPicIdx: 1,
+      highlightedPicIdx: 1,
     };
     this.handleModalClick = this.handleModalClick.bind(this);
     this.handleGetPictures = this.handleGetPictures.bind(this);
   }
 
-  handleModalClick(e = null, currPicIdx = 0) {
+  handleModalClick(e = null, highlightedPicIdx = 0) {
     e.preventDefault();
-    const { modal } = this.state;
-    console.log(currPicIdx);
+    const { isModal } = this.state;
+    console.log(highlightedPicIdx);
     this.setState({
-      modal: !modal,
-      currPicIdx,
+      isModal: !isModal,
+      highlightedPicIdx,
     });
   }
 
@@ -34,22 +34,23 @@ class CarouselCentral extends Component {
   }
 
   render() {
-    const { modal, imageUrls, currPicIdx } = this.state;
+    const { isModal, imageUrls, highlightedPicIdx } = this.state;
 
     return (
       <div style={{ width: '90%' }}>
         <CarouselLanding
-          currPicIdx={currPicIdx}
+          highlightedPicIdx={highlightedPicIdx}
           picAmt={imageUrls.length}
-          inModal={modal}
+          inModal={isModal}
           handleGetPictures={(imageUrls) => { this.handleGetPictures(imageUrls); }}
-          handleModalClick={this.handleModalClick} />
+          handleModalClick={this.handleModalClick}
+        />
 
-        {modal && (
+        {isModal && (
           <Modal
-            currPicIdx={currPicIdx}
+            highlightedPicIdx={highlightedPicIdx}
             picAmt={imageUrls.length}
-            inModal={modal}
+            inModal={isModal}
             imageUrls={imageUrls}
             handleModalClick={this.handleModalClick}
           />

@@ -36,7 +36,10 @@ class CarouselLanding extends React.Component {
     super(props);
     this.state = {
       imageUrls: [],
+      highlightedPicIdx: 0,
     };
+
+    this.handleHover = this.handleHover.bind(this);
   }
 
   componentDidMount() {
@@ -57,19 +60,40 @@ class CarouselLanding extends React.Component {
       .then(response => (response.data));
   }
 
+  handleHover(e, highlightedPicIdx) {
+    this.setState({ highlightedPicIdx: highlightedPicIdx });
+  }
+
   render() {
     const { imageUrls } = this.state;
     const { handleModalClick } = this.props;
+    const { highlightedPicIdx } = this.state;
     return (
       <LandingPhotoGrid>
         <MainLandingPhotoStyled>
-          <CarouselCard inModal handleModalClick={handleModalClick} avalue={0} imageUrl={imageUrls[0]} />
+          <CarouselCard
+            inModal
+            handleModalClick={handleModalClick}
+            handleHover={this.handleHover}
+            highlightedPicIdx={highlightedPicIdx}
+            currPicIdx={0}
+            key={0}
+            imageUrl={imageUrls[0]}
+          />
         </MainLandingPhotoStyled>
         <SideLandingPhotoGrid>
           {
             imageUrls.map((imageUrl, index) => {
               return (
-                <CarouselCard inModal avalue={index} handleModalClick={handleModalClick} key={index} imageUrl={imageUrl} />
+                <CarouselCard
+                  highlightedPicIdx={highlightedPicIdx}
+                  handleHover={this.handleHover}
+                  inModal
+                  currPicIdx={index}
+                  handleModalClick={handleModalClick}
+                  key={index}
+                  imageUrl={imageUrl}
+                />
               );
             }).slice(1, 5)
           }

@@ -22,7 +22,7 @@ app.get('/rooms/:id/pictures', (req, res) => {
 });
 
 app.get('/:id', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../public/index.html'));
+  res.sendFile(path.resolve(__dirname, '../index.html'));
 });
 
 app.listen(4500, () => {
