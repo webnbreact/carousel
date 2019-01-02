@@ -9,7 +9,7 @@ export const HideOverFlow = createGlobalStyle`
 
 export const ModalStyled = styled.div`
   position: absolute;
-  border: 5px dashed yellow;
+  // border: 5px dashed yellow;
   min-width: 90%;
   min-height: 90%;
   width: 96vw;
@@ -36,7 +36,7 @@ export const GoRightStyled = styled.div`
   font-size: .5em;
   top: ${({ top }) => top}px;
   margin-left:3vw;
-  border: 2px solid brown;
+  // border: 2px solid brown;
   position: absolute;
   right: 5px;
 `;

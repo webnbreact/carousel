@@ -12,9 +12,10 @@ const LandingPhotoGrid = styled.div`
   display: grid;
   grid-template-columns: auto 40vw 40vw;
   grid-auto-rows: 50vh;
-  border: 3px solid purple;
+  // border: 3px solid purple;
   width:98vw;
   margin-right: 1vw;
+  gap: 1px;
 `;
 
 const MainLandingPhotoStyled = styled.div`
@@ -25,10 +26,11 @@ const MainLandingPhotoStyled = styled.div`
 
 const SideLandingPhotoGrid = styled.div`
   display: grid;
+  gap: 1px;
   grid-template-columns: 1fr 1fr;
-  border:1px solid transparent;
+  // border:1px solid transparent;
   overflow:hidden;
-  border: 5px solid blue;
+  // border: 5px solid blue;
 `;
 
 class CarouselLanding extends React.Component {
