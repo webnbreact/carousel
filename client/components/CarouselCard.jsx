@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 
 const Image = styled.div`
 
-  border: 3px solid green;
+  // border: 3px solid green;
   background: no-repeat url(${({ imageUrl }) => imageUrl});
   background-size: cover;
   background-position: center;
@@ -13,7 +13,7 @@ const Image = styled.div`
   height: 300px;
   ${({ highlightedPicIdx, currPicIdx }) => (highlightedPicIdx !== currPicIdx) && css`
     -webkit-filter: brightness(50%);
-    border: 5px solid red;
+    // border: 5px solid red;
     transition: all .8s ease-out;
   `}
   
@@ -31,7 +31,7 @@ const Image = styled.div`
   transform: scale(1.3);
   -ms-transform: scale(1.3); /* IE 9 */
   -webkit-transform: scale(1.3); /* Safari and Chrome */
-  border: 3px solid blue;
+  // border: 3px solid blue;
 
   `}
 `;
@@ -39,12 +39,12 @@ const Image = styled.div`
 const OverFlowWrap = styled.div`
   position: relative;
   overflow: hidden;
-  border: 1px solid transparent;
+  // border: 1px solid transparent;
   width: 100 %;
   height: 100 %;
 
   ${({ inModal }) => !inModal && css`
-    border: 3px solid red;
+    // border: 3px solid red;
     width:100%;
     height:100%;
   `}
