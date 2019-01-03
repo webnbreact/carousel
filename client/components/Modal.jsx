@@ -34,7 +34,7 @@ class Modal extends React.Component {
   render() {
     const style = {
       position: 'absolute',
-      top: 0, left: 0, bottom: 0, right: 0, height: '5000px', background: "rgba(0, 0, 0, 0.8)"
+      top: 0, left: 0, bottom: 0, right: 0, height: '5000px', background: "rgba(0, 0, 0, 0.9)"
     };
 
     const { inModal, handleModalClick, imageUrls, highlightedPicIdx, picAmt } = this.props;
