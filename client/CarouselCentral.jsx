@@ -29,7 +29,7 @@ class CarouselCentral extends Component {
 
   handleGetPictures(imageUrls) {
     this.setState({
-      imageUrls,
+      imageUrls: imageUrls,
     });
   }
 
@@ -61,13 +61,4 @@ class CarouselCentral extends Component {
   }
 }
 
-
-function CarouselLauncher() {
-  return (
-    <Brouter>
-      <Route component={CarouselCentral} />
-    </Brouter>
-  );
-}
-
-export default CarouselLauncher;
+export default CarouselCentral;

@@ -5,7 +5,6 @@ import axios from 'axios';
 import url from 'url';
 import styled from 'styled-components';
 // import { BrowserRouter as Brouter, Switch, Route, Link } from 'react-router-dom';
-import { withRouter } from 'react-router';
 import CarouselCard from './CarouselCard';
 
 const LandingPhotoGrid = styled.div`
@@ -45,13 +44,13 @@ class CarouselLanding extends React.Component {
   }
 
   componentDidMount() {
-    let { location, match, history, handleGetPictures } = this.props;
-
-    const dbLocation = 'http://localhost:4500';
-    const postUrl = url.resolve(dbLocation, location.pathname);
-
-    this.getDataFromServer(postUrl)
+    let { handleGetPictures } = this.props;
+    console.log('hello');
+    const queryUrl = url.parse(window.location.href).path;
+    this.getDataFromServer(queryUrl + 'pictures')
       .then((data) => {
+        console.log(data);
+        debugger;
         this.setState({ imageUrls: data });
         handleGetPictures(data);
       });
@@ -106,4 +105,4 @@ class CarouselLanding extends React.Component {
 }
 
 
-export default withRouter(CarouselLanding);
+export default (CarouselLanding);
