@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   entry: __dirname + '/client/index.jsx',
   module: {
@@ -22,6 +24,9 @@ module.exports = {
     extensions: [
       '.js', '.jsx',
     ],
+    // alias: {
+    //   "styled-components": path.resolve(CarouselCard, "node_modules", "styled-components"),
+    // },
   },
   devtool: 'inline-source-map',
 };
